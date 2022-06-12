@@ -1,10 +1,10 @@
 """This module contains program to check if pairs of strings are anagram."""
 # Function to validate if the total number of comparisons specified by end user is a valid input
 # returns 1 if it is a valid input else returns 0
-def check_total_comparisons_validity(totalComparisonsParam):
+def check_total_comparisons_validity(total_comparisons_param):
     try:
-        totalComparisons = int(totalComparisonsParam)
-        if totalComparisons < 0 or (float(totalComparisonsParam)%1) != 0:
+        total_comparisons = int(total_comparisons_param)
+        if total_comparisons < 0 or (float(total_comparisons_param)%1) != 0:
             return 0
         return 1
     except:
@@ -13,29 +13,29 @@ def check_total_comparisons_validity(totalComparisonsParam):
 # Function to read the input of end user for the total number of String sets
 # returns - total number of comparisons to be done - Integer
 def get_total_number_of_comparisons():
-    isValidTotalComparisons = 1
-    totalComparisons = input("Enter the number of comparisons to be done:- ")
-    isValidTotalComparisons = check_total_comparisons_validity(totalComparisons)
-    if isValidTotalComparisons == 0:
+    is_valid_total_comparisons = 1
+    total_comparisons = input("Enter the number of comparisons to be done:- ")
+    is_valid_total_comparisons = check_total_comparisons_validity(total_comparisons)
+    if is_valid_total_comparisons == 0:
         print("Error: Entered value should be a positive integer")
-    while isValidTotalComparisons == 0:
-        totalComparisons = input("Enter the number of comparisons to be done:- ")
-        isValidTotalComparisons = check_total_comparisons_validity(totalComparisons)
-        if isValidTotalComparisons == 0:
+    while is_valid_total_comparisons == 0:
+        total_comparisons = input("Enter the number of comparisons to be done:- ")
+        is_valid_total_comparisons = check_total_comparisons_validity(total_comparisons)
+        if is_valid_total_comparisons == 0:
             print("Error: Entered value should be a positive integer")
-    return int(totalComparisons)
+    return int(total_comparisons)
 
 # Function to read the end user input for String1 of set i and String2 of seti
 # returns - List of Lists - Inner lists - [string1, string2]
-def get_string_sets_input(totalComparisons):
+def get_string_sets_input(total_comparisons):
     print("Enter the String sets for comparisons:- ")
-    stringSetsList = []
-    for i in range(totalComparisons):
-        stringSet = []
-        stringSet.append(input("Enter String 1 for set " + str(i+1) + ":- "))
-        stringSet.append(input("Enter String 2 for set " + str(i+1) + ":- "))
-        stringSetsList.append(stringSet)
-    return stringSetsList
+    string_sets_list = []
+    for i in range(total_comparisons):
+        string_set = []
+        string_set.append(input("Enter String 1 for set " + str(i+1) + ":- "))
+        string_set.append(input("Enter String 2 for set " + str(i+1) + ":- "))
+        string_sets_list.append(string_set)
+    return string_sets_list
 
 # Fucntion to compare lengths of two strings
 # returns 0, if lengths are different, returns 1, if lenghts are equal
@@ -74,24 +74,24 @@ def check_char_frequencies(string1, string2):
 # function to check the base case i.e. if lenghts of strings are equal
 # calls function to check if the given strings have same frequencies of all characters
 # returns the result accordinglye
-def check_anagram(stringSet):
-    string1 = stringSet[0]
-    string2 = stringSet[1]
-    string1Formatted = "".join(string1.split(" "))
-    string2Formatted = "".join(string2.split(" "))
-    isLengthEqual = compare_lengths(string1Formatted, string2Formatted)
-    if isLengthEqual == 0:
+def check_anagram(string_set):
+    string1 = string_set[0]
+    string2 = string_set[1]
+    string1_formatted = "".join(string1.split(" "))
+    string2_formatted = "".join(string2.split(" "))
+    is_length_equal = compare_lengths(string1_formatted, string2_formatted)
+    if is_length_equal == 0:
         return 0
     return check_char_frequencies(string1, string2)
 
 if __name__ == "__main__":
-    totalComparisons = get_total_number_of_comparisons()
+    total_comparisons = get_total_number_of_comparisons()
 
-    stringSetsList = get_string_sets_input(totalComparisons)
+    string_sets_list = get_string_sets_input(total_comparisons)
 
-    for i in range(len(stringSetsList)):
-        isAnagram = check_anagram(stringSetsList[i])
+    for i in range(len(string_sets_list)):
+        isAnagram = check_anagram(string_sets_list[i])
         if isAnagram == 0:
-            print(stringSetsList[i][0] + " & " + stringSetsList[i][1] + " are not Anagrams")
+            print(string_sets_list[i][0] + " & " + string_sets_list[i][1] + " are not Anagrams")
         else:
-            print(stringSetsList[i][0] + " & " + stringSetsList[i][1] + " are Anagrams")
+            print(string_sets_list[i][0] + " & " + string_sets_list[i][1] + " are Anagrams")
