@@ -1,6 +1,7 @@
+"""This module contains program to check if pairs of strings are anagram."""
 # Function to validate if the total number of comparisons specified by end user is a valid input
 # returns 1 if it is a valid input else returns 0
-def checkTotalComparisonsValidity(totalComparisonsParam):
+def check_total_comparisons_validity(totalComparisonsParam):
     try:
         totalComparisons = int(totalComparisonsParam)
         if totalComparisons < 0 or (float(totalComparisonsParam)%1) != 0:
@@ -9,24 +10,24 @@ def checkTotalComparisonsValidity(totalComparisonsParam):
     except:
         return 0
 
-# Function to read the input of end user for the total number of String sets 
+# Function to read the input of end user for the total number of String sets
 # returns - total number of comparisons to be done - Integer
-def getTotalNumberOfComparisons():
+def get_total_number_of_comparisons():
     isValidTotalComparisons = 1
     totalComparisons = input("Enter the number of comparisons to be done:- ")
-    isValidTotalComparisons = checkTotalComparisonsValidity(totalComparisons)
+    isValidTotalComparisons = check_total_comparisons_validity(totalComparisons)
     if isValidTotalComparisons == 0:
         print("Error: Entered value should be a positive integer")
     while isValidTotalComparisons == 0:
         totalComparisons = input("Enter the number of comparisons to be done:- ")
-        isValidTotalComparisons = checkTotalComparisonsValidity(totalComparisons)
+        isValidTotalComparisons = check_total_comparisons_validity(totalComparisons)
         if isValidTotalComparisons == 0:
             print("Error: Entered value should be a positive integer")
     return int(totalComparisons)
 
 # Function to read the end user input for String1 of set i and String2 of seti
 # returns - List of Lists - Inner lists - [string1, string2]
-def getStringSetsInput(totalComparisons):
+def get_string_sets_input(totalComparisons):
     print("Enter the String sets for comparisons:- ")
     stringSetsList = []
     for i in range(totalComparisons):
@@ -38,16 +39,16 @@ def getStringSetsInput(totalComparisons):
 
 # Fucntion to compare lengths of two strings
 # returns 0, if lengths are different, returns 1, if lenghts are equal
-def compareLengths(string1, string2):
+def compare_lengths(string1, string2):
     if len(string1) == len(string2):
         return 1
     return 0
 
-# Function to check if frequencies of every character in string1 matches the frequency 
+# Function to check if frequencies of every character in string1 matches the frequency
 # of corresponding character in string2
 # Returns 1 if all frequency of every character in string1 matches its frequency in string2
 # and if both the strings have same set of characters
-def checkCharFrequencies(string1, string2):
+def check_char_frequencies(string1, string2):
     string1 = "".join(string1.split(" ")).upper()
     string2 = "".join(string2.split(" ")).upper()
     map1 = {}
@@ -73,24 +74,23 @@ def checkCharFrequencies(string1, string2):
 # function to check the base case i.e. if lenghts of strings are equal
 # calls function to check if the given strings have same frequencies of all characters
 # returns the result accordinglye
-def checkAnagram(stringSet):
+def check_anagram(stringSet):
     string1 = stringSet[0]
     string2 = stringSet[1]
     string1Formatted = "".join(string1.split(" "))
     string2Formatted = "".join(string2.split(" "))
-    isLengthEqual = compareLengths(string1Formatted, string2Formatted)
+    isLengthEqual = compare_lengths(string1Formatted, string2Formatted)
     if isLengthEqual == 0:
         return 0
-    return checkCharFrequencies(string1, string2)
+    return check_char_frequencies(string1, string2)
 
-    
 if __name__ == "__main__":
-    totalComparisons = getTotalNumberOfComparisons()
+    totalComparisons = get_total_number_of_comparisons()
 
-    stringSetsList = getStringSetsInput(totalComparisons)
+    stringSetsList = get_string_sets_input(totalComparisons)
 
     for i in range(len(stringSetsList)):
-        isAnagram = checkAnagram(stringSetsList[i])
+        isAnagram = check_anagram(stringSetsList[i])
         if isAnagram == 0:
             print(stringSetsList[i][0] + " & " + stringSetsList[i][1] + " are not Anagrams")
         else:
