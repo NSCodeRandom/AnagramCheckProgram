@@ -1,7 +1,7 @@
 """This module contains program to check if pairs of strings are anagram."""
-# Function to validate if the total number of comparisons specified by end user is a valid input
-# returns 1 if it is a valid input else returns 0
+
 def check_total_comparisons_validity(total_comparisons_param):
+    """Function to validate if the total number of comparisons specified by end user is a valid input"""
     try:
         total_comparisons = int(total_comparisons_param)
         if total_comparisons < 0 or (float(total_comparisons_param)%1) != 0:
@@ -10,9 +10,9 @@ def check_total_comparisons_validity(total_comparisons_param):
     except:
         return 0
 
-# Function to read the input of end user for the total number of String sets
-# returns - total number of comparisons to be done - Integer
 def get_total_number_of_comparisons():
+    """Function to read the input of end user for the total number of String sets.
+    returns - total number of comparisons to be done - Integer"""
     is_valid_total_comparisons = 1
     total_comparisons = input("Enter the number of comparisons to be done:- ")
     is_valid_total_comparisons = check_total_comparisons_validity(total_comparisons)
@@ -25,9 +25,9 @@ def get_total_number_of_comparisons():
             print("Error: Entered value should be a positive integer")
     return int(total_comparisons)
 
-# Function to read the end user input for String1 of set i and String2 of seti
-# returns - List of Lists - Inner lists - [string1, string2]
 def get_string_sets_input(total_comparisons):
+    """Function to read the end user input for String1 of set i and String2 of set i
+    returns - List of Lists - Inner lists - [string1, string2]"""
     print("Enter the String sets for comparisons:- ")
     string_sets_list = []
     for i in range(total_comparisons):
@@ -37,18 +37,18 @@ def get_string_sets_input(total_comparisons):
         string_sets_list.append(string_set)
     return string_sets_list
 
-# Fucntion to compare lengths of two strings
-# returns 0, if lengths are different, returns 1, if lenghts are equal
 def compare_lengths(string1, string2):
+    """Fucntion to compare lengths of two strings
+    returns 0, if lengths are different, returns 1, if lenghts are equal"""
     if len(string1) == len(string2):
         return 1
     return 0
 
-# Function to check if frequencies of every character in string1 matches the frequency
-# of corresponding character in string2
-# Returns 1 if all frequency of every character in string1 matches its frequency in string2
-# and if both the strings have same set of characters
 def check_char_frequencies(string1, string2):
+    """Function to check if frequencies of every character in string1 matches the frequency
+    of corresponding character in string2
+    Returns 1 if all frequency of every character in string1 matches its frequency in string2
+    and if both the strings have same set of characters"""
     string1 = "".join(string1.split(" ")).upper()
     string2 = "".join(string2.split(" ")).upper()
     map1 = {}
@@ -71,10 +71,10 @@ def check_char_frequencies(string1, string2):
             return 0
     return 1
 
-# function to check the base case i.e. if lenghts of strings are equal
-# calls function to check if the given strings have same frequencies of all characters
-# returns the result accordinglye
 def check_anagram(string_set):
+    """function to check the base case i.e. if lenghts of strings are equal
+    calls function to check if the given strings have same frequencies of all characters
+    returns the result accordingly"""
     string1 = string_set[0]
     string2 = string_set[1]
     string1_formatted = "".join(string1.split(" "))
