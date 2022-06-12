@@ -21,4 +21,5 @@ jobs:
     - name: Analysing the code with pylint
       run: |
         pylint $(git ls-files '*.py')
-        - disable: ["W621", "C200", "C201", "C206"]
+        - disable: W621
+        - disable: C200
