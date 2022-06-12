@@ -1,6 +1,6 @@
 """This module contains program to check if pairs of strings are anagram."""
 
-# pylint: disable = W0621, C0200, C0201, C0206, C0303
+# pylint: disable = W0621, C0200, C0201, C0206, C0301, C0303
 
 def check_total_comparisons_validity(total_comparisons_param):
     """To validate if the total number of comparisons is a valid input"""
