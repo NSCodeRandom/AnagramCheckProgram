@@ -7,9 +7,9 @@ def checkTotalComparisonsValidity(totalComparisonsParam):
             return 0
         return 1
     except:
-        return 0  
-    
-# Function to read the input of end user for the total number of String sets end user want to supply for comparison
+        return 0
+
+# Function to read the input of end user for the total number of String sets 
 # returns - total number of comparisons to be done - Integer
 def getTotalNumberOfComparisons():
     isValidTotalComparisons = 1
@@ -33,7 +33,6 @@ def getStringSetsInput(totalComparisons):
         stringSet = []
         stringSet.append(input("Enter String 1 for set " + str(i+1) + ":- "))
         stringSet.append(input("Enter String 2 for set " + str(i+1) + ":- "))
-        
         stringSetsList.append(stringSet)
     return stringSetsList
 
@@ -44,8 +43,10 @@ def compareLengths(string1, string2):
         return 1
     return 0
 
-# Function to check if frequencies of every character in string1 matches the frequency of corresponding character in string2 
-# Returns 1 if all frequency of every character in string1 matches its frequency in string2 and if both the strings have same set of characters
+# Function to check if frequencies of every character in string1 matches the frequency 
+# of corresponding character in string2
+# Returns 1 if all frequency of every character in string1 matches its frequency in string2
+# and if both the strings have same set of characters
 def checkCharFrequencies(string1, string2):
     string1 = "".join(string1.split(" ")).upper()
     string2 = "".join(string2.split(" ")).upper()
@@ -60,14 +61,13 @@ def checkCharFrequencies(string1, string2):
             map2[string2[i]] = 1
         else:
             map2[string2[i]] += 1
-    tmp = 1      
+    tmp = 1
     for key in map1.keys():
         if key in map2.keys():
             if map1[key] != map2[key]:
                 return 0
         else:
             return 0
-        
     return 1
 
 # function to check the base case i.e. if lenghts of strings are equal
@@ -95,10 +95,3 @@ if __name__ == "__main__":
             print(stringSetsList[i][0] + " & " + stringSetsList[i][1] + " are not Anagrams")
         else:
             print(stringSetsList[i][0] + " & " + stringSetsList[i][1] + " are Anagrams")
-    
-
-
-
-
-        
-    
