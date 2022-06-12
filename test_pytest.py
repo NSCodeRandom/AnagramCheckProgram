@@ -1,3 +1,4 @@
+"""This module contains test programs to check if functions of app.py works as expected"""
 # pylint: disable = W0621, C0200, C0201, C0206, C0303
 
 import app
