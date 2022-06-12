@@ -62,7 +62,6 @@ def check_char_frequencies(string1, string2):
             map2[string2[i]] = 1
         else:
             map2[string2[i]] += 1
-    tmp = 1
     for key in map1.keys():
         if key in map2.keys():
             if map1[key] != map2[key]:
