@@ -1,13 +1,13 @@
 """This module contains program to check if pairs of strings are anagram."""
 
 def check_total_comparisons_validity(total_comparisons_param):
-    """Function to validate if the total number of comparisons specified by end user is a valid input"""
+    """Function to validate if the total number of comparisons is a valid input"""
     try:
         total_comparisons = int(total_comparisons_param)
         if total_comparisons < 0 or (float(total_comparisons_param)%1) != 0:
             return 0
         return 1
-    except:
+    except: # pylint: disable=bare-except
         return 0
 
 def get_total_number_of_comparisons():
@@ -90,8 +90,8 @@ if __name__ == "__main__":
     string_sets_list = get_string_sets_input(total_comparisons)
 
     for i in range(len(string_sets_list)):
-        isAnagram = check_anagram(string_sets_list[i])
-        if isAnagram == 0:
+        is_anagram = check_anagram(string_sets_list[i])
+        if is_anagram == 0:
             print(string_sets_list[i][0] + " & " + string_sets_list[i][1] + " are not Anagrams")
         else:
             print(string_sets_list[i][0] + " & " + string_sets_list[i][1] + " are Anagrams")
