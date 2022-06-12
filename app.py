@@ -3,7 +3,7 @@
 # pylint: disable = W0621, C0200, C0201, C0206, C0303
 
 def check_total_comparisons_validity(total_comparisons_param):
-    """Function to validate if the total number of comparisons is a valid input"""
+    """To validate if the total number of comparisons is a valid input"""
     try:
         total_comparisons = int(total_comparisons_param)
         if total_comparisons < 0 or (float(total_comparisons_param)%1) != 0:
@@ -13,7 +13,7 @@ def check_total_comparisons_validity(total_comparisons_param):
         return 0
 
 def get_total_number_of_comparisons():
-    """Function to read the input of end user for the total number of String sets.
+    """To read the input by end user for the total number of String sets.
     returns - total number of comparisons to be done - Integer"""
     is_valid_total_comparisons = 1
     total_comparisons = input("Enter the number of comparisons to be done:- ")
@@ -28,7 +28,7 @@ def get_total_number_of_comparisons():
     return int(total_comparisons)
 
 def get_string_sets_input(total_comparisons):
-    """Function to read the end user input for String1 of set i and String2 of set i
+    """To read the end user input for String1 and String2 for each pair
     returns - List of Lists - Inner lists - [string1, string2]"""
     print("Enter the String sets for comparisons:- ")
     string_sets_list = []
@@ -40,16 +40,16 @@ def get_string_sets_input(total_comparisons):
     return string_sets_list
 
 def compare_lengths(string1, string2):
-    """Fucntion to compare lengths of two strings
+    """To compare lengths of two strings
     returns 0, if lengths are different, returns 1, if lenghts are equal"""
     if len(string1) == len(string2):
         return 1
     return 0
 
 def check_char_frequencies(string1, string2):
-    """Function to check if frequencies of every character in string1 matches the frequency
+    """To check if frequencies of every character in string1 matches the frequency
     of corresponding character in string2
-    Returns 1 if all frequency of every character in string1 matches its frequency in string2
+    Returns 1 if frequency of every character in string1 matches its frequency in string2
     and if both the strings have same set of characters"""
     string1 = "".join(string1.split(" ")).upper()
     string2 = "".join(string2.split(" ")).upper()
@@ -73,7 +73,7 @@ def check_char_frequencies(string1, string2):
     return 1
 
 def check_anagram(string_set):
-    """function to check the base case i.e. if lenghts of strings are equal
+    """To check the base case i.e. if lenghts of strings are equal
     calls function to check if the given strings have same frequencies of all characters
     returns the result accordingly"""
     string1 = string_set[0]
@@ -89,10 +89,11 @@ if __name__ == "__main__":
     total_comparisons = get_total_number_of_comparisons()
 
     string_sets_list = get_string_sets_input(total_comparisons)
-
+    print()
+    print("Result is as shown below:")
     for i in range(len(string_sets_list)):
         IS_ANAGRAM = check_anagram(string_sets_list[i])
         if IS_ANAGRAM == 0:
-            print(string_sets_list[i][0] + " & " + string_sets_list[i][1] + " are not Anagrams")
+            print("(" + string_sets_list[i][0] + ") & (" + string_sets_list[i][1] + ") are not Anagrams")
         else:
-            print(string_sets_list[i][0] + " & " + string_sets_list[i][1] + " are Anagrams")
+            print("(" + string_sets_list[i][0] + ") & (" + string_sets_list[i][1] + ") are Anagrams")
