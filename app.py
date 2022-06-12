@@ -89,8 +89,8 @@ if __name__ == "__main__":
     string_sets_list = get_string_sets_input(total_comparisons)
 
     for i in range(len(string_sets_list)):
-        is_anagram = check_anagram(string_sets_list[i])
-        if is_anagram == 0:
+        IS_ANAGRAM = check_anagram(string_sets_list[i])
+        if IS_ANAGRAM == 0:
             print(string_sets_list[i][0] + " & " + string_sets_list[i][1] + " are not Anagrams")
         else:
             print(string_sets_list[i][0] + " & " + string_sets_list[i][1] + " are Anagrams")
